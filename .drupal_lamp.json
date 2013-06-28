@@ -1,17 +1,17 @@
 {
   "drupal": {
       "sites": {
-          "drupal": {
+          "furniche": {
               "deploy": true,
               "clean": false,
               "releases": 1,
               "files": "sites/default/files",
               "settings": "sites/default/settings.php",
               "repository": {
-                  "uri": "http://git.drupal.org/project/drupal.git",
-                  "revision": "7.x"
+                  "uri": "git@github.com:arknoll/furniche.git",
+                  "revision": "master"
               },
-              "profile": "standard",
+              "profile": "nmd",
               "install": {
                   "install_configure_form.update_status_module": "'array(FALSE,FALSE)'",
                   "--clean-url": 1
