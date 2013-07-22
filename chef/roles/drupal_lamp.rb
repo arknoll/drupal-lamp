@@ -20,6 +20,7 @@ env_run_lists "_default" => [
                 "recipe[git]",
                 "recipe[drupal::ssh]",
                 "recipe[drupal::apache]",
+                "recipe[drupal::solr]",
                 "recipe[drupal::php]",
                 "recipe[drupal::drush]",
                 "recipe[drupal::mysql]",
