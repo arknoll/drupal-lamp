@@ -15,17 +15,15 @@
       "sync_binlog": "0"
     }
   },
-  "php": {
-    "directives": {
-      "memory_limit": -1
-    },
-    "conf_dir" : "/etc/php5/apache2"
-  },
   "drupal": {
     "sites": {
       "drupal": {
         "deploy": false,
         "clean": false,
+        "compass": {
+          "compile": false,
+          "watch_dir": ""
+        },
         "releases": 1,
         "files": "sites/default/files",
         "settings": "sites/default/settings.php",
