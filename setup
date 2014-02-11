@@ -49,6 +49,20 @@ else
 fi
 echo ""
 
+PS3="Select a file share to open: "
+options=("No share (default)" "Mount Box (suggested for development)" "NFS local")
+select opt in "${options[@]}"
+do
+  case "$REPLY" in
+    1 ) echo "you chose ${options[0]}"; break;;
+    2 ) echo "you chose ${options[1]}"; break;;
+    3 ) echo "you chose ${options[2]}"; break;;
+    * ) echo "you chose ${options[0]}"; REPLY=1; break;;
+  esac
+done
+
+echo "$REPLY"
+
 VMNAME="drupal"
 read -p "Enter the VM's name you would like to use (this is exposed in virtualbox or vmware). This will also be used as the sitename in drupal configurations. It should not contain anything but letters or numbers. [$VMNAME]: " VMNAMER
 VMNAMEU=${VMNAMER:-$VMNAME}
