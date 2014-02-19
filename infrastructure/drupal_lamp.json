@@ -18,7 +18,7 @@
   "server": {
       "web_user": "www-data",
       "web_group": "www-data",
-      "assets": "/srv/assets",
+      "assets": "/assets",
       "theme_default": "mytheme",
       "base": "/srv/www"
   },
@@ -33,54 +33,56 @@
   "drupal": {
       "drush": {
         "repository": "https://github.com/drush-ops/drush.git",
-        "revision": "master"
+        "revision": "6.2.0"
       },
       "sites": {
-          "example": {
+          "spitesting": {
               "active": true,
               "deploy": {
-                  "action": "clean",
-                  "releases": 1
+                  "action": "import",
+                  "releases": 2
               },
               "drupal": {
-                  "version": 8.0,
+                  "version": 7.0,
                   "install": {
                       "install_configure_form.update_status_module": "'array(FALSE,FALSE)'",
                       "--clean-url": 1
                   },
                   "settings": {
-                      "profile": "standard",
+                      "profile": "spi",
                       "files": "sites/default/files",
                       "cookbook": "drupal",
                       "settings": {
                         "default": {
                           "location": "sites/default/settings.php"
                         },
-                        "example_template": {
-                          "location": "sites/default/example.settings.php",
-                          "template": "example.settings.php.erb"
-                        },
-                        "example_static": {
-                          "location": "profiles/standard/standard.settings.php"
+                        "dev": {
+                          "location": "profiles/spi/dev.settings.php"
                         }
                       },
-                      "db_name": "example",
+                      "db_name": "spi",
                       "db_host": "localhost",
                       "db_prefix": "",
-                      "db_driver": "mysql"
+                      "db_driver": "mysql",
+                      "db_file": "SensorimotorPsychotherapy-2014-02-17T02-04-22"
                   }
               },
               "repository": {
-                  "host": "github.com",
-                  "uri": "https://github.com/drupal/drupal.git",
-                  "revision": "8.x"
+                "host": "github.com",
+                "uri": "git@github.com:arknoll/spi.git",
+                "revision": "phaseII"
               },
               "web_app": {
-                  "80": {
-                    "server_name": "drupal.local",
-                    "rewrite_engine": "On",
-                    "docroot": "/srv/www/example/current"
-                  }
+                "80": {
+                  "server_name": "spitesting.local",
+                  "rewrite_engine": "On",
+                  "docroot": "/srv/www/spitesting/current"
+                },
+                "443": {
+                  "server_name": "spitesting.local",
+                  "rewrite_engine": "On",
+                  "docroot": "/srv/www/spitesting/current"
+                }
               }
           }
       }

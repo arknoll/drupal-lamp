@@ -28,23 +28,24 @@ Vagrant.configure("2") do |config|
   config.omnibus.chef_version = :latest
   config.berkshelf.enabled = true
   config.berkshelf.berksfile_path = File.dirname(__FILE__) + "/Berksfile"
-  config.vm.define :drupaldev do |server|
+  config.vm.define :drupal2dev do |server|
     server.ssh.forward_agent = true
     server.vm.box = "precise64"
-    #server.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-fusion503.box"
-    server.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box"
+    server.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-fusion503.box"
+    #server.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box"
 
     server.vm.provider "vmware_fusion" do |v|
-      v.vmx["memsize"]  = "1024"
+      v.vmx["memsize"]  = "3048"
+      v.vmx["numvcpus"] = "2"
     end
 
     server.vm.provider :virtualbox do |v|
-      v.name = "drupal"
+      v.name = "drupal2"
       v.customize ["modifyvm", :id, "--memory", "1024"]
     end
 
-    server.vm.network :private_network, ip: "192.168.50.5"
-    server.vm.hostname = "drupal.local"
+    server.vm.network :private_network, ip: "192.168.10.15"
+    server.vm.hostname = "drupal2.local"
     # server.vm.synced_folder "assets", "/assets", :nfs => false, :owner => "www-data", :group => "www-data"
     server.vm.synced_folder "assets", "/assets", :nfs => true
     server.vm.provision :chef_solo do |chef|

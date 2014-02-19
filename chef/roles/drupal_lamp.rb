@@ -34,4 +34,5 @@ env_run_lists "_default" => [
                 "recipe[drupal::drush]",
                 "recipe[drupal::mysql]",
                 "recipe[drupal]",
+                "recipe[drupal-codeception]"
               ]

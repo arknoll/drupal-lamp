@@ -1,5 +1,5 @@
 {
-  "id": "example",
+  "id": "spitesting",
   "_default" : {
     "db_user": "drupal",
     "db_password": "drupal",
