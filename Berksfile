@@ -9,5 +9,5 @@ cookbook 'openssl', '~> 1.1.0'
 cookbook 'php', '~> 1.2.6'
 cookbook 'ssh_known_hosts', '~> 1.1.0'
 cookbook 'sudo', '~> 2.2.2'
-cookbook "drupal", git: "https://github.com/newmediadenver/drupal", ref: "0dc32ebe1ca77fb7238e8fa68751e9054560be12"
-cookbook 'drupal-codeception', git: 'https://github.com/arknoll/drupal-codeception', ref: '738d5b1af41422b2a4f898f7f55a18c130559b03'
+cookbook "drupal", git: "https://github.com/newmediadenver/drupal", ref: "464b33dc311eb2bfe193f9c3c70d4107f62f507f"
+cookbook "drupal-solr", git: "https://github.com/arknoll/drupal-solr", ref: "01030a12ed9828026e0eef87323aa3c700dbb594"
