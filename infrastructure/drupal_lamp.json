@@ -15,16 +15,6 @@
         "debian": "debian"
       }
   },
-<<<<<<< HEAD
-  "server": {
-      "web_user": "www-data",
-      "web_group": "www-data",
-      "assets": "/assets",
-      "theme_default": "mytheme",
-      "base": "/srv/www"
-  },
-=======
->>>>>>> master
   "php": {
     "directives": {
       "memory_limit": "1024M",
@@ -37,7 +27,7 @@
     "server": {
       "web_user": "www-data",
       "web_group": "www-data",
-      "assets": "/srv/assets",
+      "assets": "/assets",
       "base": "/srv/www"
     },
       "drush": {
@@ -48,7 +38,7 @@
           "spitesting": {
               "active": true,
               "deploy": {
-                  "action": "import",
+                  "action": "clean",
                   "releases": 2
               },
               "drupal": {
