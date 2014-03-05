@@ -1,8 +1,8 @@
 {
   "id": "spitesting",
   "_default" : {
-    "db_user": "drupal",
-    "db_password": "drupal",
+    "db_user": "root",
+    "db_password": "root",
     "admin_user": "example_admin",
     "admin_pass": "admin"
   }

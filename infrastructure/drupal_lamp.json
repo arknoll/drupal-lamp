@@ -1,4 +1,21 @@
 {
+  "nfs_exports": {
+    "/srv/www/spitesting/current": {
+      "clients": {
+        "*": {
+          "writeable": true,
+          "sync": false,
+          "options": [
+            "no_subtree_check",
+            "all_squash",
+            "async"
+          ],
+          "anon_user_name": "www-data",
+          "anon_group_name": "www-data"
+        }
+      }
+    }
+  },
   "selfsigned_certificate": {
     "destination": "/etc/apache2/ssl",
     "sslpassphrase": "test",
@@ -77,11 +94,11 @@
       "spitesting": {
         "active": true,
         "deploy": {
-          "action": "import",
-          "releases": 1
+          "action": ["deploy","import","update"],
+          "releases": 3
         },
         "drupal": {
-          "version": 7.0,
+          "version": "7.0",
           "install": {
             "install_configure_form.update_status_module": "'array(FALSE,FALSE)'",
             "--clean-url": 1
