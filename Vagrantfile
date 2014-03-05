@@ -23,8 +23,8 @@ require 'json'
 data = JSON.parse(File.read("infrastructure/drupal_lamp.json"))
 
 Vagrant.configure("2") do |config|
-  config.nfs.map_uid = :auto
-  config.nfs.map_gid = :auto
+  config.nfs.map_uid = 0
+  config.nfs.map_gid = 0
   config.omnibus.chef_version = :latest
   config.berkshelf.enabled = true
   config.berkshelf.berksfile_path = File.dirname(__FILE__) + "/Berksfile"
@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
     #server.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box"
 
     server.vm.provider "vmware_fusion" do |v|
-      v.vmx["memsize"]  = "3048"
+      v.vmx["memsize"]  = "4048"
       v.vmx["numvcpus"] = "2"
     end
 
@@ -44,7 +44,7 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--memory", "1024"]
     end
 
-    server.vm.network :private_network, ip: "192.168.10.15"
+    server.vm.network :public_network, :bridge => 'en2: Display Ethernet'
     server.vm.hostname = "drupal2.local"
     # server.vm.synced_folder "assets", "/assets", :nfs => false, :owner => "www-data", :group => "www-data"
     server.vm.synced_folder "assets", "/assets", :nfs => true
