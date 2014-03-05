@@ -1,30 +1,59 @@
 {
+  "selfsigned_certificate": {
+    "destination": "/etc/apache2/ssl",
+    "sslpassphrase": "test",
+    "country": "US",
+    "state": "Colorado",
+    "city": "Denver",
+    "orga": "NewMedia Denver",
+    "cn": "spitesting.local",
+    "email": "alex@newmediadenver.com"
+  },
+  "mysql": {
+    "allow_remote_root": "true",
+    "tunable": {
+      "max_allowed_packet": "16M",
+      "key_buffer_size": "32M",
+      "max_connect_errors": "1000",
+      "tmp_table_size": "32M",
+      "max_connections": "500",
+      "thread_cache_size": "50",
+      "table_open_cache": "512",
+      "innodb_flush_log_at_trx_commit": "0",
+      "innodb_file_per_table": "1",
+      "innodb_buffer_pool_size": "128M",
+      "innodb_flush_method": "O_DIRECT",
+      "sync_binlog": "0"
+    }
+  },
+  "apache": {
+    "prefork": {
+      "startservers": "1",
+      "minspareservers": "1",
+      "maxspareservers": "2",
+      "maxclients": "15",
+      "serverlimit": "15",
+      "keepalive": "On",
+      "keepalivetimeout": "4",
+      "maxkeepaliverequests": "1000"
+    }
+  },
   "build_essential": {
     "compiletime": true
   },
   "db": {
-      "driver": "mysql",
-      "client_recipe": "mysql::client",
+    "driver": "mysql",
+    "client_recipe": "mysql::client",
+    "root": "root",
+    "grant_hosts": [
+      "localhost"
+    ],
+    "users": {
       "root": "root",
-      "grant_hosts": [
-        "localhost"
-      ],
-      "users": {
-        "root": "root",
-        "replication": "replication",
-        "debian": "debian"
-      }
+      "replication": "replication",
+      "debian": "debian"
+    }
   },
-<<<<<<< HEAD
-  "server": {
-      "web_user": "www-data",
-      "web_group": "www-data",
-      "assets": "/assets",
-      "theme_default": "mytheme",
-      "base": "/srv/www"
-  },
-=======
->>>>>>> master
   "php": {
     "directives": {
       "memory_limit": "1024M",
@@ -37,63 +66,70 @@
     "server": {
       "web_user": "www-data",
       "web_group": "www-data",
-      "assets": "/srv/assets",
+      "assets": "/assets",
       "base": "/srv/www"
     },
-      "drush": {
-        "repository": "https://github.com/drush-ops/drush.git",
-        "revision": "6.2.0"
-      },
-      "sites": {
-          "spitesting": {
-              "active": true,
-              "deploy": {
-                  "action": "import",
-                  "releases": 2
+    "drush": {
+      "repository": "https://github.com/drush-ops/drush.git",
+      "revision": "6.2.0"
+    },
+    "sites": {
+      "spitesting": {
+        "active": true,
+        "deploy": {
+          "action": "import",
+          "releases": 1
+        },
+        "drupal": {
+          "version": 7.0,
+          "install": {
+            "install_configure_form.update_status_module": "'array(FALSE,FALSE)'",
+            "--clean-url": 1
+          },
+          "settings": {
+            "profile": "spi",
+            "files": "sites/default/files",
+            "cookbook": "drupal",
+            "settings": {
+              "default": {
+                "location": "sites/default/settings.php"
               },
-              "drupal": {
-                  "version": 7.0,
-                  "install": {
-                      "install_configure_form.update_status_module": "'array(FALSE,FALSE)'",
-                      "--clean-url": 1
-                  },
-                  "settings": {
-                      "profile": "spi",
-                      "files": "sites/default/files",
-                      "cookbook": "drupal",
-                      "settings": {
-                        "default": {
-                          "location": "sites/default/settings.php"
-                        },
-                        "dev": {
-                          "location": "profiles/spi/dev.settings.php"
-                        }
-                      },
-                      "db_name": "spi",
-                      "db_host": "localhost",
-                      "db_prefix": "",
-                      "db_driver": "mysql",
-                      "db_file": "SensorimotorPsychotherapy-2014-02-17T02-04-22"
-                  }
-              },
-              "repository": {
-                "host": "github.com",
-                "uri": "git@github.com:arknoll/spi.git",
-                "revision": "phaseII"
-              },
-              "web_app": {
-                "80": {
-                  "server_name": "spitesting.local",
-                  "rewrite_engine": "On",
-                  "docroot": "/srv/www/spitesting/current"
-                },
-                "443": {
-                  "server_name": "spitesting.local",
-                  "rewrite_engine": "On",
-                  "docroot": "/srv/www/spitesting/current"
-                }
+              "dev": {
+                "location": "profiles/spi/dev.settings.php"
               }
+            },
+            "db_name": "spi",
+            "db_host": "localhost",
+            "db_prefix": "",
+            "db_driver": "mysql",
+            "db_file": "SensorimotorPsychotherapy-2014-02-18T02-52-38"
           }
+        },
+        "repository": {
+          "host": "github.com",
+          "uri": "git@github.com:arknoll/spi.git",
+          "revision": "phaseII"
+        },
+        "web_app": {
+          "80": {
+            "server_name": "spitesting.local",
+            "rewrite_engine": "On",
+            "docroot": "/srv/www/spitesting/current",
+            "error_log": "/var/log/apache2/spi-error.log"
+          },
+          "443": {
+            "server_name": "spitesting.local",
+            "rewrite_engine": "On",
+            "docroot": "/srv/www/spitesting/current",
+            "error_log": "/var/log/apache2/spi-error.log",
+            "ssl": {
+              "ssl_engine": "on",
+              "ssl_certificate_file": "/etc/apache2/ssl/server.crt",
+              "ssl_certificate_key_file": "/etc/apache2/ssl/server.key"
+            }
+          }
+        }
       }
+    }
   }
 }
