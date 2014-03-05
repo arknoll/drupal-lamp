@@ -23,9 +23,9 @@ require 'json'
 data = JSON.parse(File.read("infrastructure/drupal_lamp.json"))
 
 Vagrant.configure("2") do |config|
-  # for Vagrant nfs support
-  config.nfs.map_uid = 0
-  config.nfs.map_gid = 0
+  # for Vagrant-provided nfs support
+  #config.nfs.map_uid = 0
+  #config.nfs.map_gid = 0
 
   config.omnibus.chef_version = :latest
   config.berkshelf.enabled = true
