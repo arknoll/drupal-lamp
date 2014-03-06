@@ -86,30 +86,46 @@
       "assets": "/assets",
       "base": "/srv/www"
     },
-    "drush": {
-      "repository": "https://github.com/drush-ops/drush.git",
-      "revision": "6.2.0"
-    },
-    "sites": {
-      "spitesting": {
-        "active": true,
-        "deploy": {
-          "action": ["deploy","import","update"],
-          "releases": 3
-        },
-        "drupal": {
-          "version": "7.0",
-          "install": {
-            "install_configure_form.update_status_module": "'array(FALSE,FALSE)'",
-            "--clean-url": 1
-          },
-          "settings": {
-            "profile": "spi",
-            "files": "sites/default/files",
-            "cookbook": "drupal",
-            "settings": {
-              "default": {
-                "location": "sites/default/settings.php"
+      "sites": {
+          "example": {
+              "active": true,
+              "deploy": {
+                  "action": ["deploy"],
+                  "releases": 3
+              },
+              "drupal": {
+                  "version": "7.26",
+                  "install": {
+                      "install_configure_form.update_status_module": "'array(FALSE,FALSE)'",
+                      "--clean-url": 1
+                  },
+                  "settings": {
+                      "profile": "standard",
+                      "files": "sites/default/files",
+                      "cookbook": "drupal",
+                      "settings": {
+                        "default": {
+                          "location": "sites/default/settings.php"
+                        },
+                        "example_template": {
+                          "location": "sites/default/example.settings.php",
+                          "template": "example.settings.php.erb"
+                        },
+                        "example_static": {
+                          "location": "profiles/standard/standard.settings.php"
+                        }
+                      },
+                      "db_name": "example",
+                      "db_host": "localhost",
+                      "db_prefix": "",
+                      "db_driver": "mysql",
+                      "db_file": ""
+                  }
+              },
+              "repository": {
+                  "host": "github.com",
+                  "uri": "https://github.com/drupal/drupal.git",
+                  "revision": "7.26"
               },
               "dev": {
                 "location": "profiles/spi/dev.settings.php"
