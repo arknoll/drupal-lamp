@@ -119,13 +119,13 @@
             "db_host": "localhost",
             "db_prefix": "",
             "db_driver": "mysql",
-            "db_file": "SensorimotorPsychotherapy-2014-03-07T21-01-15"
+            "db_file": "SensorimotorPsychotherapy-2014-03-12T18-03-02"
           }
         },
         "repository": {
           "host": "github.com",
           "uri": "git@github.com:arknoll/spi.git",
-          "revision": "phaseII"
+          "revision": "hotfix2.0"
         },
         "web_app": {
           "80": {
