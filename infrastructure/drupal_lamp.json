@@ -34,8 +34,15 @@
           "example": {
               "active": true,
               "deploy": {
-                  "action": ["deploy"],
-                  "releases": 1
+                  "action": ["deploy", "install"],
+                  "releases": 2
+              },
+              "drush_make" : {
+                "api": 2,
+                "files": {
+                  "core": "drupal-org-core.make"
+                },
+                "template": true
               },
               "drupal": {
                   "version": "7.26",
@@ -44,7 +51,7 @@
                       "--clean-url": 1
                   },
                   "settings": {
-                      "profile": "standard",
+                      "profile": "commerce_kickstart",
                       "files": "sites/default/files",
                       "cookbook": "drupal",
                       "settings": {
@@ -68,8 +75,8 @@
               },
               "repository": {
                   "host": "github.com",
-                  "uri": "https://github.com/drupal/drupal.git",
-                  "revision": "7.26"
+                  "uri": "https://github.com/commerceguys/commerce_kickstart.git",
+                  "revision": "7.x-2.13"
               },
               "web_app": {
                   "80": {
