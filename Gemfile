@@ -6,6 +6,7 @@ gem "chefspec",   "3.3.1"
 gem "foodcritic", "~> 3.0"
 gem "rake"
 gem "rubocop"
+gem "gargor", :git => 'git://github.com/tumf/gargor.git', :branch => 'master'
 
 group :integration do
   gem "test-kitchen", "1.2.1"
