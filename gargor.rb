@@ -8,7 +8,7 @@ population 10
 elite 1
 
 # Probability of mutation　set "0.01" to "1%" (when crossover)
-mutation 0.01
+mutation 0.07
 
 # target cook command : '%s' will replace by node name.
 target_cooking_cmd "vagrant provision"
@@ -18,7 +18,7 @@ target_cooking_cmd "vagrant provision"
 target_nodes ["spitesting.local"]
 
 # attack command
-attack_cmd "vagrant ssh -- ab -n 10 -c 1 http://spitesting.local/"
+attack_cmd "vagrant ssh -- ab -n 10 -c 2 http://localhost/"
 
 
 # evalute of the attack
