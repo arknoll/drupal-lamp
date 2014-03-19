@@ -1,35 +1,23 @@
 {
-  "apache": {
-    "prefork": {
-      "startservers": "1",
-      "minspareservers": "1",
-      "maxspareservers": "5",
-      "maxclients": "6",
-      "serverlimit": "6",
-      "keepalive": "On",
-      "keepalivetimeout": "4",
-      "maxkeepaliverequests": "1000"
-    }
-  },
   "mysql": {
     "tunable": {
       "sync_binlog": "0",
-      "innodb_flush_log_at_trx_commit": "0",
-      "max_allowed_packet": "16M",
-      "max_connect_errors": "1000000",
-      "tmp_table_size": "32M",
-      "max_heap_table_size": "32M",
-      "query_cache_type": "0",
-      "max_connections": "500",
-      "thread_cache_size": "50",
-      "open_files_limit": "65535",
-      "table_definition_cache": "4096",
-      "table_open_cache": "4096",
+      "innodb_flush_log_at_trx_commit": 2,
+      "max_allowed_packet": 1508719,
+      "max_connect_errors": 951317,
+      "tmp_table_size": 1794020,
+      "max_heap_table_size": 3572951,
+      "query_cache_type": 1,
+      "max_connections": 5785,
+      "thread_cache_size": 13941,
+      "open_files_limit": 21876,
+      "table_definition_cache": 36600,
+      "table_open_cache": 6366,
       "innodb_flush_method": "O_DIRECT",
-      "innodb_file_per_table": "1",
-      "innodb_buffer_pool_size": "128M",
-      "query_cache_size": "12M",
-      "table_cache": "5120"
+      "innodb_file_per_table": 0,
+      "innodb_buffer_pool_size": 423796000,
+      "query_cache_size": 19931000,
+      "table_cache": 8422
     }
   },
   "drupal": {
@@ -37,7 +25,9 @@
       "example": {
         "active": true,
         "deploy": {
-          "action": ["deploy", "install"],
+          "action": [
+
+          ],
           "releases": 1
         },
         "drupal": {
