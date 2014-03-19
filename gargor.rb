@@ -54,47 +54,47 @@ end
 # json_path: to locate the value by JSONPath
 # mutaion:   to set value when mutaion
 
-param 'startservers' do
-  json_file 'infrastructure/drupal_lamp.json'
-  json_path '$.apache.prefork.startservers'
-  mutation rand(25)
-end
+# param 'startservers' do
+#   json_file 'infrastructure/drupal_lamp.json'
+#   json_path '$.apache.prefork.startservers'
+#   mutation rand(25)
+# end
 
-param 'minspareservers' do
-  json_file 'infrastructure/drupal_lamp.json'
-  json_path '$.apache.prefork.minspareservers'
-  mutation rand(25)
-end
+# param 'minspareservers' do
+#   json_file 'infrastructure/drupal_lamp.json'
+#   json_path '$.apache.prefork.minspareservers'
+#   mutation rand(25)
+# end
 
-param 'maxspareservers' do
-  json_file 'infrastructure/drupal_lamp.json'
-  json_path '$.apache.prefork.maxspareservers'
-  mutation rand(25)
-end
+# param 'maxspareservers' do
+#   json_file 'infrastructure/drupal_lamp.json'
+#   json_path '$.apache.prefork.maxspareservers'
+#   mutation rand(25)
+# end
 
-param 'maxclients' do
-  json_file 'infrastructure/drupal_lamp.json'
-  json_path '$.apache.prefork.maxclients'
-  mutation rand(25)
-end
+# param 'maxclients' do
+#   json_file 'infrastructure/drupal_lamp.json'
+#   json_path '$.apache.prefork.maxclients'
+#   mutation rand(25)
+# end
 
-param 'serverlimit' do
-  json_file 'infrastructure/drupal_lamp.json'
-  json_path '$.apache.prefork.serverlimit'
-  mutation rand(25)
-end
+# param 'serverlimit' do
+#   json_file 'infrastructure/drupal_lamp.json'
+#   json_path '$.apache.prefork.serverlimit'
+#   mutation rand(25)
+# end
 
-param 'keepalivetimeout' do
-  json_file 'infrastructure/drupal_lamp.json'
-  json_path '$.apache.prefork.keepalivetimeout'
-  mutation rand(10)
-end
+# param 'keepalivetimeout' do
+#   json_file 'infrastructure/drupal_lamp.json'
+#   json_path '$.apache.prefork.keepalivetimeout'
+#   mutation rand(10)
+# end
 
-param 'maxkeepaliverequests' do
-  json_file 'infrastructure/drupal_lamp.json'
-  json_path '$.apache.prefork.maxkeepaliverequests'
-  mutation rand(5000)
-end
+# param 'maxkeepaliverequests' do
+#   json_file 'infrastructure/drupal_lamp.json'
+#   json_path '$.apache.prefork.maxkeepaliverequests'
+#   mutation rand(5000)
+# end
 
 param 'innodb_flush_log_at_trx_commit' do
   json_file 'infrastructure/drupal_lamp.json'
