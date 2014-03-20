@@ -1,14 +1,14 @@
 # generations: set > 1
-max_generations 10
+max_generations 30
 
 # individuals number of some generation.
-population 10
+population 30
 
 # elite number of some generation.(carried over)
 elite 1
 
 # Probability of mutation　set "0.01" to "1%" (when crossover)
-mutation 0.07
+mutation 0.03
 
 # target cook command : '%s' will replace by node name.
 target_cooking_cmd "vagrant provision"
@@ -28,19 +28,19 @@ attack_cmd "vagrant ssh -- ab -n 10 -c 2 http://localhost/"
 evaluate do |code,out,time|
   puts out
   fitness = 0
-  fitness = 1/time
   # get "FAILED" count from stadard output of stress-tool,
   # and set fitess to 0 when FAILED > 0.
   if time > 0 && code == 0
     # get fitness from stadard output of stress-tool.
     # e.g.: request count:200, concurrenry:20, 45.060816 req/s
-    if /, ([.\d]+) \[#\/sec\]/s =~ out
+    if /([.\d]+) \[#\/sec\]/s =~ out
       fitness = $1.to_f
     end
-    # To get fitness simply,to use execution time
-    # fitness = 1/time
-  else 
-    fitness = 0
+    if /Failed requests:\s+(\d+)/s =~ out
+      if $1.to_f > 0
+        fitness = 0
+      end
+    end
   end
   # This block must return the fitness.(integer or float)
   fitness
