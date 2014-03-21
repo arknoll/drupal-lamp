@@ -94,7 +94,7 @@
       "spitesting": {
         "active": true,
         "deploy": {
-          "action": ["deploy", "import"],
+          "action": ["deploy", "import", "update"],
           "releases": 3
         },
         "drupal": {

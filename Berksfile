@@ -9,7 +9,7 @@ cookbook 'openssl', '~> 1.1.0'
 cookbook 'php', '~> 1.2.6'
 cookbook 'ssh_known_hosts', '~> 1.1.0'
 cookbook 'sudo', '~> 2.2.2'
-cookbook "drupal", path: '~/Sites/drud/drupal'
+cookbook "drupal", git: "https://github.com/newmediadenver/drupal", tag: "v1.0.0"
 cookbook "drupal-solr", git: "https://github.com/arknoll/drupal-solr", ref: "01030a12ed9828026e0eef87323aa3c700dbb594"
 cookbook 'selfsigned_certificate', git: "https://github.com/cgravier/selfsigned_certificate", ref: '0f861d0568baa3e0669ddd8951a9c8d51422d532'
 cookbook 'drupal-nfs', git: "https://github.com/arknoll/drupal-nfs", ref: '2c66b6b1a01140f7a77febd621760cb82734dcbc'
