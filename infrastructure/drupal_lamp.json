@@ -77,7 +77,7 @@
       "upload_max_filesize": "200M",
       "post_max_size": "210M"
     },
-    "conf_dir" : "/etc/php5/apache2"
+    "conf_dir": "/etc/php5/apache2"
   },
   "drupal": {
     "server": {
@@ -94,7 +94,9 @@
       "spitesting": {
         "active": true,
         "deploy": {
-          "action": ["deploy", "import"],
+          "action": [
+
+          ],
           "releases": 3
         },
         "drupal": {
