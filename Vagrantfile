@@ -33,8 +33,8 @@ Vagrant.configure("2") do |config|
   config.vm.define :drupal2dev do |server|
     server.ssh.forward_agent = true
     server.vm.box = "precise64"
-    server.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-fusion503.box"
-    #server.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box"
+    #server.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-fusion503.box"
+    server.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box"
 
     server.vm.provider "vmware_fusion" do |v|
       v.vmx["memsize"]  = "4048"
@@ -43,7 +43,7 @@ Vagrant.configure("2") do |config|
 
     server.vm.provider :virtualbox do |v|
       v.name = "drupal2"
-      v.customize ["modifyvm", :id, "--memory", "1024"]
+      v.customize ["modifyvm", :id, "--memory", "2048"]
     end
 
     server.vm.network :public_network, :bridge => 'en2: Display Ethernet'

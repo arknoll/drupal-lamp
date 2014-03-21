@@ -38,7 +38,7 @@
       "table_open_cache": "512",
       "innodb_flush_log_at_trx_commit": "0",
       "innodb_file_per_table": "1",
-      "innodb_buffer_pool_size": "128M",
+      "innodb_buffer_pool_size": "256M",
       "innodb_flush_method": "O_DIRECT",
       "sync_binlog": "0"
     }
@@ -99,10 +99,6 @@
         },
         "drupal": {
           "version": "7.26",
-          "install": {
-            "install_configure_form.update_status_module": "'array(FALSE,FALSE)'",
-            "--clean-url": 1
-          },
           "settings": {
             "profile": "spi",
             "files": "sites/default/files",
@@ -119,13 +115,13 @@
             "db_host": "localhost",
             "db_prefix": "",
             "db_driver": "mysql",
-            "db_file": "/vagrant/SensorimotorPsychotherapy-2014-03-17T14-07-34"
+            "db_file": "/vagrant/SensorimotorPsychotherapy-2014-03-19T15-21-55"
           }
         },
         "repository": {
           "host": "github.com",
           "uri": "git@github.com:arknoll/spi.git",
-          "revision": "hotfix2.0"
+          "revision": "checkoutflow"
         },
         "web_app": {
           "80": {
