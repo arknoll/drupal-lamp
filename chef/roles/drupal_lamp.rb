@@ -78,16 +78,5 @@ default_attributes(
 )
 
 env_run_lists '_default' => [
-                'recipe[apt]',
-                'recipe[build-essential]',
-                'recipe[drupal::init]',
-                'recipe[sudo]',
-                'recipe[git]',
-                'recipe[mysql::server]',
-                'recipe[drupal::ssh]',
-                'recipe[drupal::apache]',
-                'recipe[drupal::php]',
-                'recipe[drupal::drush]',
-                'recipe[drupal::mysql]',
-                'recipe[drupal]',
+                'recipe[mysql::server]'
               ]

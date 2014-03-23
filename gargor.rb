@@ -1,8 +1,8 @@
 # generations: set > 1
-max_generations 20
+max_generations 10
 
 # individuals number of some generation.
-population 20
+population 40
 
 # elite number of some generation.(carried over)
 elite 1
@@ -18,7 +18,7 @@ target_cooking_cmd "vagrant provision"
 target_nodes ["spitesting.local"]
 
 # attack command
-attack_cmd "vagrant ssh -- ab -n 100 -c 2 http://localhost/admin/modules"
+attack_cmd "vagrant ssh -- ab -n 50 -c 2 http://localhost/admin/modules"
 
 
 # evalute of the attack
