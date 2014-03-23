@@ -1,8 +1,8 @@
 # generations: set > 1
-max_generations 30
+max_generations 20
 
 # individuals number of some generation.
-population 30
+population 20
 
 # elite number of some generation.(carried over)
 elite 1
@@ -18,7 +18,7 @@ target_cooking_cmd "vagrant provision"
 target_nodes ["spitesting.local"]
 
 # attack command
-attack_cmd "vagrant ssh -- ab -n 10 -c 2 http://localhost/"
+attack_cmd "vagrant ssh -- ab -n 100 -c 2 http://localhost/admin/modules"
 
 
 # evalute of the attack
@@ -105,14 +105,14 @@ end
 param 'max_allowed_packet' do
   json_file 'infrastructure/drupal_lamp.json'
   json_path '$.mysql.tunable.max_allowed_packet'
-  mutation rand(1024..5242880)
+  mutation rand(104857..5242880)
 end
 
-param 'max_connect_errors' do
-  json_file 'infrastructure/drupal_lamp.json'
-  json_path '$.mysql.tunable.max_connect_errors'
-  mutation rand(1..2000000)
-end
+# param 'max_connect_errors' do
+#   json_file 'infrastructure/drupal_lamp.json'
+#   json_path '$.mysql.tunable.max_connect_errors'
+#   mutation rand(1..2000000)
+# end
 
 param 'tmp_table_size' do
   json_file 'infrastructure/drupal_lamp.json'
@@ -135,7 +135,7 @@ end
 param 'max_connections' do
   json_file 'infrastructure/drupal_lamp.json'
   json_path '$.mysql.tunable.max_connections'
-  mutation rand(1..10000)
+  mutation rand(100..10000)
 end
 
 param 'thread_cache_size' do
@@ -147,13 +147,13 @@ end
 param 'open_files_limit' do
   json_file 'infrastructure/drupal_lamp.json'
   json_path '$.mysql.tunable.open_files_limit'
-  mutation rand(0..131070)
+  mutation rand(0..165535)
 end
 
 param 'table_definition_cache' do
   json_file 'infrastructure/drupal_lamp.json'
   json_path '$.mysql.tunable.table_definition_cache'
-  mutation rand(400..40960)
+  mutation rand(256..40960)
 end
 
 param 'table_open_cache' do
