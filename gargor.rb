@@ -141,13 +141,13 @@ end
 param 'thread_cache_size' do
   json_file 'infrastructure/drupal_lamp.json'
   json_path '$.mysql.tunable.thread_cache_size'
-  mutation rand(0..16384)
+  mutation rand(20..16384)
 end
 
 param 'open_files_limit' do
   json_file 'infrastructure/drupal_lamp.json'
   json_path '$.mysql.tunable.open_files_limit'
-  mutation rand(0..165535)
+  mutation rand(2..165535)
 end
 
 param 'table_definition_cache' do
@@ -171,17 +171,17 @@ end
 param 'innodb_buffer_pool_size' do
   json_file 'infrastructure/drupal_lamp.json'
   json_path '$.mysql.tunable.innodb_buffer_pool_size'
-  mutation rand(500) * 1049000
+  mutation rand(64..500) * 1049000
 end
 
 param 'query_cache_size' do
   json_file 'infrastructure/drupal_lamp.json'
   json_path '$.mysql.tunable.query_cache_size'
-  mutation rand(0..24) * 1049000
+  mutation rand(2..24) * 1049000
 end
 
 param 'table_cache' do
   json_file 'infrastructure/drupal_lamp.json'
   json_path '$.mysql.tunable.table_cache'
-  mutation rand(1..15120)
+  mutation rand(2..15120)
 end
