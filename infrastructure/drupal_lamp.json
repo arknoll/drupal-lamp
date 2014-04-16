@@ -115,7 +115,7 @@
             "db_host": "localhost",
             "db_prefix": "",
             "db_driver": "mysql",
-            "db_file": "/vagrant/SensorimotorPsychotherapy-2014-03-28T15-33-03"
+            "db_file": "/vagrant/SensorimotorPsychotherapy-2014-04-15T15-48-04"
           }
         },
         "repository": {
