@@ -32,8 +32,8 @@ Vagrant.configure('2') do |config|
   config.vm.define :drupaldev do |server|
     server.ssh.forward_agent = true
     server.vm.box = 'precise64'
-    #server.vm.box_url = 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-fusion503.box'
-    server.vm.box_url = 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box'
+    server.vm.box_url = 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-fusion503.box'
+    #server.vm.box_url = 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box'
 
     server.vm.provider 'vmware_fusion' do |v|
       v.vmx['memsize']  = '1024'
@@ -46,7 +46,7 @@ Vagrant.configure('2') do |config|
 
     server.vm.hostname = 'drupal.local'
 
-    server.vm.network :private_network, ip: '192.168.50.5'
+    server.vm.network :public_network, :bridge => 'en2: Display Ethernet'
 
     # For Vagrant-provided synced folders
     # Ensure the second parameter (/assets) is the same as the Default['drupal']['server']['assets']
@@ -65,7 +65,7 @@ Vagrant.configure('2') do |config|
       chef.environments_path = 'chef/environments'
       chef.environment = 'development'
       chef.add_role('base')
-      chef.add_role('example')
+      chef.add_role('spi')
     end
   end
 end

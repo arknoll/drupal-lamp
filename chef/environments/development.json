@@ -3,7 +3,24 @@
   "description": "The development environment",
   "json_class": "Chef::Environment",
   "chef_type": "environment",
-  "default_attributes": {
+  "override_attributes": {
+    "nfs_exports": {
+      "/srv/www/spi/current": {
+        "clients": {
+          "*": {
+            "writeable": true,
+            "sync": false,
+            "options": [
+              "no_subtree_check",
+              "all_squash",
+              "async"
+            ],
+            "anon_user_name": "www-data",
+            "anon_group_name": "www-data"
+          }
+        }
+      }
+    },
     "authorization": {
       "sudo": {
         "sudoers_defaults": [
@@ -77,8 +94,5 @@
       },
       "conf_dir": "/etc/php5/apache2"
     }
-  },
-  "override_attributes": {
-
   }
 }

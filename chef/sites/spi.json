@@ -1,0 +1,59 @@
+{
+  "name": "spi",
+  "description": "Spi.",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": { },
+  "override_attributes": {
+    "drupal": {
+      "sites": {
+        "spi": {
+          "active": true,
+          "deploy": {
+            "action": ["deploy", "import", "update"]
+          },
+          "drupal": {
+            "settings": {
+              "profile": "spi",
+              "settings": {
+                "dev": {
+                  "location": "profiles/spi/dev.settings.php"
+                }
+              },
+              "db_file": "/vagrant/SensorimotorPsychotherapy-2014-04-18T15-06-16"
+            }
+          },
+          "repository": {
+            "host": "github.com",
+            "uri": "git@github.com:arknoll/spi.git",
+            "revision": "checkoutflow"
+          },
+          "web_app": {
+            "443": {
+              "server_name": "spi.local",
+              "rewrite_engine": "On",
+              "docroot": "/srv/www/spi/current",
+              "error_log": "/var/log/apache2/spi-error.log",
+              "ssl": {
+                "ssl_engine": "on",
+                "ssl_certificate_file": "/etc/apache2/ssl/server.crt",
+                "ssl_certificate_key_file": "/etc/apache2/ssl/server.key"
+              }
+            }
+          }
+        }
+      }
+    },
+    "selfsigned_certificate": {
+      "destination": "/etc/apache2/ssl",
+      "sslpassphrase": "test",
+      "country": "US",
+      "state": "Colorado",
+      "city": "Denver",
+      "orga": "NewMedia Denver",
+      "cn": "spi.local",
+      "email": "alex@newmediadenver.com"
+    }
+  },
+  "run_list": []
+}
