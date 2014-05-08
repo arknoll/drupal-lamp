@@ -36,12 +36,12 @@ Vagrant.configure('2') do |config|
     #server.vm.box_url = 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box'
 
     server.vm.provider 'vmware_fusion' do |v|
-      v.vmx['memsize']  = '1024'
+      v.vmx['memsize']  = '4000'
     end
 
     server.vm.provider :virtualbox do |v|
       v.name = 'drupal'
-      v.customize ['modifyvm', :id, '--memory', '1024']
+      v.customize ['modifyvm', :id, '--memory', '4000']
     end
 
     server.vm.hostname = 'drupal.local'

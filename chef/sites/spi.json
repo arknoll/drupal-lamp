@@ -20,13 +20,13 @@
                   "location": "profiles/spi/dev.settings.php"
                 }
               },
-              "db_file": "/vagrant/SensorimotorPsychotherapy-2014-05-01T14-41-13"
+              "db_file": "/vagrant/SensorimotorPsychotherapy-2014-05-08T16-28-04"
             }
           },
           "repository": {
             "host": "github.com",
             "uri": "git@github.com:arknoll/spi.git",
-            "revision": "checkoutflow"
+            "revision": "hotfix2.0"
           },
           "web_app": {
             "443": {
