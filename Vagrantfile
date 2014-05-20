@@ -37,6 +37,7 @@ Vagrant.configure('2') do |config|
 
     server.vm.provider 'vmware_fusion' do |v|
       v.vmx['memsize']  = '4000'
+      v.vmx["numvcpus"] = '2'
     end
 
     server.vm.provider :virtualbox do |v|

@@ -88,7 +88,7 @@
     },
     "php": {
       "directives": {
-        "memory_limit": "192M",
+        "memory_limit": "-1",
         "upload_max_filesize": "8M",
         "post_max_size": "10M"
       },
