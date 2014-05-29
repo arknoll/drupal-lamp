@@ -26,7 +26,7 @@
           "repository": {
             "host": "github.com",
             "uri": "git@github.com:arknoll/spi.git",
-            "revision": "checkoutflow",
+            "revision": "dashboard",
             "remotes": {
               "upstream": "git@github.com:newmediadenver/spi.git"
             }
