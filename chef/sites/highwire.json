@@ -1,0 +1,38 @@
+{
+  "name": "highwire",
+  "description": "Highwire.",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": { },
+  "override_attributes": {
+    "drupal": {
+      "sites": {
+        "highwire": {
+          "active": true,
+          "deploy": {
+            "action": ["deploy", "install"]
+          },
+          "drush_make": {
+            "api": 2,
+            "files": {
+              "core": "drupal-org-core.make",
+              "default": "build-highwire.make"
+            },
+            "template": false
+          },
+          "drupal": {
+            "settings": {
+              "profile": "highwire_profile"
+            }
+          },
+          "repository": {
+            "host": "github.com",
+            "uri": "git@github.com:arknoll/drupal-highwire.git",
+            "revision": "highwire_profile"
+          }
+        }
+      }
+    }
+  },
+  "run_list": []
+}

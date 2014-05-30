@@ -5,7 +5,7 @@
   "chef_type": "environment",
   "override_attributes": {
     "nfs_exports": {
-      "/srv/www/spi/current": {
+      "/srv/www/highwire/current": {
         "clients": {
           "*": {
             "writeable": true,

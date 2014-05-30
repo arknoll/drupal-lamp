@@ -12,8 +12,6 @@
     "recipe[sudo]",
     "recipe[git]",
     "recipe[apache2::default]",
-    "recipe[apache2::mod_ssl]",
-    "recipe[selfsigned_certificate]",
     "recipe[mysql::server]",
     "recipe[drupal::ssh]",
     "recipe[drupal::apache]",
@@ -21,7 +19,6 @@
     "recipe[drupal::drush]",
     "recipe[drupal::mysql]",
     "recipe[drupal]",
-    "recipe[drupal-nfs]",
-    "recipe[drupal-solr]"
+    "recipe[drupal-nfs]"
   ]
 }
