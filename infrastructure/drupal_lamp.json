@@ -1,5 +1,8 @@
 {
   "drupal": {
+    "drush": {
+      "revision": "7.0.0-alpha3"
+    },
     "sites": {
       "example": {
         "active": true,
@@ -8,7 +11,7 @@
           "releases": 1
         },
         "drupal": {
-          "version": "7.26",
+          "version": "8.0",
           "install": {
             "install_configure_form.update_status_module": "'array(FALSE,FALSE)'",
             "--clean-url": 1
@@ -32,7 +35,7 @@
         "repository": {
           "host": "github.com",
           "uri": "https://github.com/drupal/drupal.git",
-          "revision": "7.26"
+          "revision": "8.0-alpha12"
         },
         "web_app": {
           "80": {

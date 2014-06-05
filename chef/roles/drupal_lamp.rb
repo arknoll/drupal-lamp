@@ -83,6 +83,7 @@ env_run_lists '_default' => [
                 'recipe[drupal::init]',
                 'recipe[sudo]',
                 'recipe[git]',
+                'recipe[composer]',
                 'recipe[mysql::server]',
                 'recipe[drupal::ssh]',
                 'recipe[drupal::apache]',
