@@ -1,0 +1,31 @@
+{
+  "name": "example",
+  "description": "An example site to load Drupal.",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "override_attributes": {
+    "nmddatabase": {
+      "databases": ["example"]
+    },
+    "drupal": {
+      "sites": {
+        "example": {
+          "active": 1,
+          "deploy": {
+            "action": ["deploy", "install"]
+          },
+          "repository": {
+            "uri": "https://github.com/drupal/drupal.git",
+            "revision": "8.0-alpha12"
+          },
+          "drupal": {
+            "settings": {
+              "profile": "standard"
+            }
+          }
+        }
+      }
+    }
+  },
+  "run_list": []
+}

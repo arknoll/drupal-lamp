@@ -32,9 +32,9 @@ Vagrant.configure("2") do |config|
   config.berkshelf.berksfile_path = File.dirname(__FILE__) + "/Berksfile"
   config.vm.define :drupaldev do |server|
     server.ssh.forward_agent = true
-    server.vm.box = "precise64"
-    #server.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-fusion503.box"
-    server.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box"
+    server.vm.box = 'ubuntu1404'
+    #server.vm.box_url = 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-fusion503.box'
+    server.vm.box_url = 'https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box'
 
     server.vm.provider "vmware_fusion" do |v|
       v.vmx["memsize"]  = "1024"
@@ -50,12 +50,12 @@ Vagrant.configure("2") do |config|
     server.vm.network :private_network, ip: "192.168.50.5"
 
     # For Vagrant-provided synced folders
-    # Ensure the second parameter (/assets) is the same as the Default['drupal']['server']['assets'] 
+    # Ensure the second parameter (/assets) is the same as the Default['drupal']['server']['assets']
     # destination in your drupal_lamp.json file
     #server.vm.synced_folder "assets", "/assets", :nfs => false, :owner => "www-data", :group => "www-data"
-    
+
     # For Vagrant-provided nfs support
-    # Ensure the second parameter (/assets) is the same as the Default['drupal']['server']['assets'] 
+    # Ensure the second parameter (/assets) is the same as the Default['drupal']['server']['assets']
     # destination in your drupal_lamp.json file
     #server.vm.synced_folder "assets", "/assets", :nfs => true
 
