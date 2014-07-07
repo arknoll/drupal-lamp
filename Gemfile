@@ -1,12 +1,12 @@
 source "https://rubygems.org"
 
-gem "berkshelf",  "~> 2.0"
-gem "chef",       "~> 11.0"
+gem "berkshelf",  "3.1.2"
+gem "chef",       "11.12.4"
 gem "chefspec",   "3.3.1"
-gem "foodcritic", "~> 3.0"
+gem "foodcritic", "3.0"
 gem "rake"
 gem "rubocop"
-gem 'vagrant-wrapper', '~> 1.2.1.1'
+gem 'vagrant-wrapper', '1.2.1.1'
 
 group :integration do
   gem "test-kitchen", "1.2.1"

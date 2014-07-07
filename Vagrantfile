@@ -26,7 +26,7 @@ Vagrant.configure('2') do |config|
   #config.nfs.map_uid = 0
   #config.nfs.map_gid = 0
 
-  config.omnibus.chef_version = :latest
+  config.omnibus.chef_version = '11.12.4'
   config.berkshelf.enabled = true
   config.berkshelf.berksfile_path = File.dirname(__FILE__) + '/Berksfile'
   config.vm.define :drupaldev do |server|
@@ -47,7 +47,9 @@ Vagrant.configure('2') do |config|
 
     server.vm.hostname = 'drupal.local'
 
-    server.vm.network :public_network, :bridge => 'en2: Display Ethernet'
+    # server.vm.network :public_network, :bridge => 'en2: Display Ethernet'
+
+    server.vm.network :private_network, ip: "192.168.50.5"
 
     # For Vagrant-provided synced folders
     # Ensure the second parameter (/assets) is the same as the Default['drupal']['server']['assets']

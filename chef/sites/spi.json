@@ -10,7 +10,7 @@
         "spi": {
           "active": true,
           "deploy": {
-            "action": ["deploy", "import", "update"]
+            "action": []
           },
           "drupal": {
             "settings": {
@@ -20,7 +20,7 @@
                   "location": "profiles/spi/dev.settings.php"
                 }
               },
-              "db_file": "/vagrant/SensorimotorPsychotherapy-2014-05-16T20-13-19"
+              "db_file": "/vagrant/SensorimotorPsychotherapy-2014-06-20T15-41-49"
             }
           },
           "repository": {
@@ -56,6 +56,19 @@
       "orga": "NewMedia Denver",
       "cn": "spi.local",
       "email": "alex@newmediadenver.com"
+    },
+    "drupal_frontend": {
+      "css_preprocessor":{
+        "/assets/spi/current/profiles/spi/themes/custom/spi_bare":{
+          "gems": [
+            "bundler"
+          ],
+          "commands": [
+            "bundle install && bundle update",
+            "bundle exec compass compile"
+          ]
+        }
+      }
     }
   },
   "run_list": []
