@@ -1,5 +1,5 @@
 # generations: set > 1
-max_generations 10
+max_generations 20
 
 # individuals number of some generation.
 population 40
@@ -162,11 +162,11 @@ param 'table_open_cache' do
   mutation rand(1..40960)
 end
 
-param 'innodb_file_per_table' do
-  json_file 'infrastructure/drupal_lamp.json'
-  json_path '$.mysql.tunable.innodb_file_per_table'
-  mutation rand(0..1)
-end
+# param 'innodb_file_per_table' do
+#   json_file 'infrastructure/drupal_lamp.json'
+#   json_path '$.mysql.tunable.innodb_file_per_table'
+#   mutation rand(0..1)
+# end
 
 param 'innodb_buffer_pool_size' do
   json_file 'infrastructure/drupal_lamp.json'

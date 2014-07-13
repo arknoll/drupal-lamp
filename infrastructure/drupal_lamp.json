@@ -1,21 +1,20 @@
 {
   "mysql": {
     "tunable": {
-      "innodb_flush_log_at_trx_commit": 1,
-      "max_allowed_packet": 4747997,
-      "tmp_table_size": 9605,
-      "max_heap_table_size": 2967979,
+      "innodb_flush_log_at_trx_commit": 2,
+      "max_allowed_packet": 732275,
+      "tmp_table_size": 4952457,
+      "max_heap_table_size": 2985274,
       "query_cache_type": 1,
-      "max_connections": 5510,
-      "thread_cache_size": 13853,
-      "open_files_limit": 54425,
-      "table_definition_cache": 10737,
-      "table_open_cache": 11639,
+      "max_connections": 6471,
+      "thread_cache_size": 4755,
+      "open_files_limit": 9386,
+      "table_definition_cache": 31187,
+      "table_open_cache": 6826,
       "innodb_flush_method": "O_DIRECT",
-      "innodb_file_per_table": 1,
-      "innodb_buffer_pool_size": 231829000,
-      "query_cache_size": 13637000,
-      "table_cache": 9418
+      "innodb_buffer_pool_size": 267495000,
+      "query_cache_size": 9441000,
+      "table_cache": 3164
     }
   },
   "drupal": {
@@ -24,7 +23,6 @@
         "active": true,
         "deploy": {
           "action": [
-
           ],
           "releases": 1
         },
@@ -64,5 +62,11 @@
         }
       }
     }
+  },
+  "drupal_developer": {
+    "xdebug": true,
+    "phpmyadmin": true,
+    "xhprof": true,
+    "percona_toolkit": true
   }
 }
