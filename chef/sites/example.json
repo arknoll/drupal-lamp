@@ -16,7 +16,7 @@
           },
           "repository": {
             "uri": "https://github.com/drupal/drupal.git",
-            "revision": "8.0-alpha12"
+            "revision": "8.0-alpha13"
           },
           "drupal": {
             "settings": {
